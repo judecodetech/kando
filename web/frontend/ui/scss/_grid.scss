@@ -1,0 +1,79 @@
+/**
+ * Uses Bourboun Neat to define some grids.
+ * Docs: http://thoughtbot.github.io/neat-docs/latest/
+ */
+
+@mixin clearfix {
+    &:after {
+        content: " ";
+        display: block;
+        height: 0;
+        clear: both;
+    }
+}
+
+.column {
+    display: block;
+
+    &:last-child {
+        border-right: 0px;
+    }
+}
+
+.row {
+    @include clearfix;
+
+    @include align-items(stretch);
+
+    @include display(flex);
+
+    width: 100%;
+}
+
+.span-1 {
+    @include span-columns(1, block-collapse);
+}
+
+.span-2 {
+    @include span-columns(2, block-collapse);
+}
+
+.span-3 {
+    @include span-columns(3, block-collapse);
+}
+
+.span-4 {
+    @include span-columns(4, block-collapse);
+}
+
+.span-5 {
+    @include span-columns(5, block-collapse);
+}
+
+.span-6 {
+    @include span-columns(6, block-collapse);
+}
+
+.span-7 {
+    @include span-columns(7, block-collapse);
+}
+
+.span-8 {
+    @include span-columns(8, block-collapse);
+}
+
+.span-9 {
+    @include span-columns(9, block-collapse);
+}
+
+.span-10 {
+    @include span-columns(10, block-collapse);
+}
+
+.span-11 {
+    @include span-columns(11, block-collapse);
+}
+
+.span-12 {
+    @include span-columns(12, block-collapse);
+}

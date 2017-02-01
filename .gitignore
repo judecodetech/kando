@@ -1,0 +1,6 @@
+venv
+*.pyc
+localsettings.py
+node_modules/
+bower_components/
+web/frontend/static/generated/

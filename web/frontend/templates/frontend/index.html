@@ -1,0 +1,130 @@
+{% extends 'frontend/base.html' %}
+{% block content %}
+
+{% if request.get_full_path == doing_url %}
+
+<div class="main">
+    <section class="span-11 column doing">
+        <div class="card-content black-text">
+            <span class="card-title">{{doing_list|length}} task{{doing_list|length|pluralize}} </span>
+            <ul>
+                {% for doing in doing_list %}
+                <li>
+                    <div class="collapsible-header grey"><i class="material-icons">filter_drama</i>{{ doing.name }}</div>
+                    <div class="collapsible-body black-text">
+                        <div class="span-10 column">
+                            <p>{{ doing.description }}</p>
+                        </div>
+
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+
+    <section class="span-11 column recently-completed">
+        <div class="card grey darken-1">
+            <div class="card-content gray">
+                <span class="card-title">RECENTLY COMPLETED</span>
+                <ul>
+                    {% for done in done_list %}
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">filter_drama</i>{{ done.name }}</div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </section>
+</div>
+
+{% elif request.get_full_path == review_url %}
+
+ <section class="span-11 column review">
+    <div class="card grey darken-1">
+        <div class="card-content grey">
+            <span class="card-title">High Priority</span>
+            <ul class="collapsible" data-collapsible="accordion">
+                {% for review in review_list %}
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>{{ review.name }}</div>
+                    <div class="collapsible-body"><p>{{ review.description }}</p></div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="span-11 column review">
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">Low Priority</span>
+            <ul class="collapsible" data-collapsible="accordion">
+                {% for review in review_list %}
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>{{ review.name }}</div>
+                    <div class="collapsible-body"><p>{{ review.description }}</p></div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+
+{% elif request.get_full_path == done_url %}
+
+<section class="span-11 column tasks-done">
+    <div class="card-content black-text">
+        <span class="card-title">{{done_list|length}} task{{done_list|length|pluralize}} </span>
+        <ul class="collapsible" data-collapsible="accordion">
+            {% for task in done_list %}
+            <li>
+                <div class="collapsible-header grey"><i class="material-icons">filter_drama</i>{{ task.name }}</div>
+                <div class="collapsible-body black-text">
+                    <p>{{ task.description }}</p>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+{% else %}
+
+<section class="span-11 column tasks-todo">
+    <div class="card-content black-text">
+        <span class="card-title">{{to_do_list|length}} task{{to_do_list|length|pluralize}} </span>
+        <ul class="collapsible" data-collapsible="accordion">
+            {% for task in to_do_list %}
+            <li>
+                <div class="collapsible-header grey"><i class="material-icons">filter_drama</i>{{ task.name }}</div>
+                <div class="collapsible-body black-text">
+                    <p>{{ task.description }}</p>
+                </div>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+    </section>
+
+    <section class="span-11 column review">
+    <div class="card grey darken-1">
+        <div class="card-content white-smoke">
+            <span class="card-title">URGENT REVIEW</span>
+            <ul class="collapsible" data-collapsible="accordion">
+                {% for review in review_list %}
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>{{ review.name }}</div>
+                    <div class="collapsible-body"><p>{{ review.description }}</p></div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+
+{% endif %}
+
+{% endblock %} 

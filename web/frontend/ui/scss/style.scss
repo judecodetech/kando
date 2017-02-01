@@ -1,0 +1,22 @@
+@import "../bower_components/normalize-scss/normalize.scss";
+@import "../bower_components/normalize-scss/normalize.scss";
+@import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
+@import "../bower_components/neat/app/assets/stylesheets/neat";
+@import "../bower_components/materialize/sass/materialize";
+
+@import "grid";
+@import "nav";
+@import "tasks";
+
+html {
+    margin: 0px;
+    height:100%;
+}
+body {
+	min-height: 100%;
+	margin: 0px;
+}
+
+.wrapper {
+    height: inherit;
+}

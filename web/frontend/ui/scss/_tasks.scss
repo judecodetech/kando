@@ -1,0 +1,134 @@
+/**
+ * Styles for tasks.
+ */
+
+
+//create task
+
+.create-task {
+	padding: 42px;
+	.container {
+		width: initial;
+		height: 151px;
+		background: #fff;
+	}
+	.span-8 {
+		padding: 23px;
+	}
+}
+
+.white-smoke {
+	background: #f5f5f5;
+}
+
+.tags {
+	display: inline-block;
+	font-size: 12px;
+
+	.add-tag a {
+		color: #000;
+	}
+	.add-border {
+		display: inline-block;
+		border: 1px black solid;
+    	border-radius: 16px;
+    	padding: 5px;
+
+		.material-icons {
+			margin-right: 5px;
+			font-size: 17px;
+			line-height: 19px;
+			background: #e0e0e0;
+    		border-radius: 100%;
+		}
+	}
+	.tag-color {
+		background: #e0e0e0;
+	}
+}
+
+.creat-task-btn {
+	float: right;
+	background: gray;
+	margin-right: 24px;
+}
+
+.assignee-date {
+	padding: 19px;
+    height: 151px;
+    background: #ccc;
+
+    .assignee, .due-date {
+    	background: white;
+    	padding-left: 10px;
+    }
+}
+
+.review {
+	width: 93.82785% !important; 
+}
+
+.card {
+	margin: 0;
+	box-shadow: none;
+
+	&-content{
+		box-shadow: none;
+		.collapsible {
+			box-shadow: none;
+		}
+	}
+}
+
+
+// tasks to do and done
+
+.tasks {
+	&-todo {
+		padding: 42px;
+
+		ul {
+			overflow-y: scroll;
+			height: 139px;
+		}
+	}
+
+	&-done {
+		padding: 42px;
+		width: 93.82785% !important;
+	
+		li {
+			margin-bottom: 25px;
+		}
+
+		.card-content .collapsible {
+			border-right: none;
+			border-left: none;
+
+			.collapsible-header {
+				color: white;
+				text-decoration: line-through;
+			}
+		}
+
+	}
+
+}
+
+
+// tasks in doing state.
+
+.doing {
+	padding: 42px;
+}
+
+.recently-completed {
+	width: 93.82785% !important;
+
+	.collapsible-header {
+		border: 0;
+		background-color: inherit !important;
+		text-decoration: line-through;
+		color: white
+	}
+}

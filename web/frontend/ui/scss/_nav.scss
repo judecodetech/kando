@@ -1,0 +1,131 @@
+/**
+ * Styles for the main and user navuigation, and headers.
+ */
+
+.main-header {
+	margin: 0;
+}
+.user {
+	img {
+		float: left;
+    	width: 51px;
+    	height: 51px;
+    	margin: 9px;
+	}
+
+	.entity {
+		padding-left: 44px;
+    	padding-right: 44px;
+    	color: #808080;
+	}
+}
+
+.details {
+	display: inline-block;
+	margin: 5px;
+}
+
+.name {
+	font-size: 1.1rem;
+}
+
+.position {
+	font-size: 0.80rem;
+}
+
+.primary-nav {
+   	margin: 0px;
+   	background: #303131;
+}
+.primary-nav a {
+	text-align: center;
+}
+
+.users-nav {
+	position: absolute;
+	right: 0;
+	width: 6.17215% !important;
+	height: 100%;
+	text-align: center;
+	background: #303131;
+	    
+}
+
+.circular {
+	display: inline-flex;
+	padding: 5px;
+    margin: 10px;
+    height: 26px;
+    width: 26px;
+    border-radius: 100%;
+    border: 1px white solid;
+}
+
+.main {
+	position: relative;
+}
+
+.settings {
+	display: inline-block;
+    padding: 13px;
+
+	a {
+		margin: 3px;
+
+		.material-icons {
+			border-right: 1px #808080 dotted;
+    		padding: 21px;
+    		line-height: 0.5;
+    		font-size: 18px;
+    		color: #808080;
+		}
+	}
+}
+
+.no-border {
+	border: 0 !important;
+}
+
+.search {
+	border-right: 1px #808080 solid;
+	margin: 0;
+
+	input {
+		height: 100%;
+	}
+}
+
+.team {
+	.circular {
+		height: 30px;
+    	width: 30px;
+    	font-size: 1rem;
+    	line-height: 17px;
+    	padding-left: 2px;
+    	display: inherit;
+    	margin: 8px;
+	}
+	h6 {
+		font-size: 75%;
+	}
+	li {
+		display: inline-block;
+		float: none;
+		padding-bottom: 12px;
+	}
+}
+
+.add-member {
+	width: 46.5px !important;
+    height: 46.5px !important;
+
+    .material-icons {
+    	line-height: 46.5px !important;
+    	color: #000 !important;
+    	background: #fff !important;
+    }
+}
+
+.active {
+	background: #fff;
+}

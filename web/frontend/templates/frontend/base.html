@@ -1,0 +1,105 @@
+{% load frontend_tags %}
+{% load staticfiles %}
+{% url 'index'  as root_url %}
+{% url 'doing'  as doing_url %}
+{% url 'review'  as review_url %}
+{% url 'done'  as done_url %}
+<!DOCTYPE html>
+<html>
+<head>
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="{% static 'generated/css/style.css' %}">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body>
+    <div class="wrapper">
+        <header class="main-header row">
+            <a class="user column span-4">
+                <div class="entity">
+                   <img class="circle responsive-img" src="{% static 'generated/img/jude.jpg' %}" >
+                    <div class="details">
+                        <h5 class="name">{{user.get_full_name}}</h5>
+                        <h6 class="position">Project Manager</h6>
+                    </div>
+                </div>
+            </a>
+            <div class="search column span-8">
+                <input type="text" name="search" placeholder="&#xf002; Search for anything...">
+            </div>
+
+            <div class="settings column span-4">
+                <a href=""><i class="material-icons">schedule</i></a>
+                <a href=""><i class="material-icons">add_alert</i></a>
+                <a href=""><i class="material-icons">settings</i></a>
+                <a href=""><i class="no-border material-icons">volume_mute</i></a>
+            </div>
+        </header>
+        <nav class="primary-nav row">
+            <a class="span-4 column" href="{{ root_url }}"><i class="circular {% if request.get_full_path == root_url %}active{% endif %}"></i>My tasks</a>
+            <a class="span-4 column" href="{{ doing_url }}"><i class="circular {% if request.get_full_path == doing_url %}active{% endif %}"></i>Doing</a>
+            <a class="span-4 column" href="{{ review_url }}"><i class="circular {% if request.get_full_path == review_url %}active{% endif %}"></i>Review</a>
+            <a class="span-4 column" href="{{ done_url }}"><i class="circular {% if request.get_full_path == done_url %}active{% endif %}"></i>Done</a>
+        </nav>
+
+        <section class="span-11 column create-task white-smoke">
+            <div class="container">
+                <form class="add-task" method="post">
+                    {% csrf_token %}
+                    <div class="span-8 column">
+                        <input type="text" name="name" placeholder="Create a task">
+                        <div class="tags">
+                            <span class="add-tag add-border">
+                                <a>
+                                    <i class="material-icons left">add</i>
+                                    Add tag
+                                </a>
+                            </span>
+                            <span class="tag-color add-border no-border">Finance</span>
+                            <span class="tag-color add-border no-border">Urgent</span>
+                        </div>
+                        <button class="creat-task-btn waves-effect waves-light btn" type="submit">Create</button>
+                    </div>
+                    <div class="span-4 column assignee-date">
+                        <input class="assignee" type="text" name="assignee" placeholder="Assign someone">
+                        <input class="due-date" type="date" name="due-date">
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <nav class="users-nav span-1 column row">
+            <ul class="team">
+                <li>
+                    <a href="">
+                        <i class="circular">S</i>
+                        <h6>Shadlee</h6>
+                        <h6>3</h6>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <i class="circular">J</i>
+                        <h6>Juta</h6>
+                        <h6>6</h6>
+                    </a>
+                </li>
+                <li>
+                    <a class="add-member btn-floating btn-large waves-effect waves-light">
+                        <i class="material-icons black">add</i>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        
+        <div class="main">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+    <script type="text/javascript" src="{% static 'generated/js/external.js' %}"></script>
+</body>
+</html>
