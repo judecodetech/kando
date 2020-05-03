@@ -11,13 +11,17 @@
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
     "gulp-jscs": "^4.0.0",
-    "gulp-sass": "^2.3.2",
+    "gulp-sass": "^4.0.0",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-uglify": "^1.5.4"
   },
   "scripts": {
+    "preinstall": "npx npm-force-resolutions",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "breadcrumb.tech",
+  "resolutions": {
+    "graceful-fs": "4.2.3"
+  },
+  "author": "Jude Ugbefu",
   "license": "ISC"
 }

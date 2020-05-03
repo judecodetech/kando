@@ -78,7 +78,7 @@ class TaskManager(models.Manager):
         ).order_by(
             'id',
             '-action__created'
-        ).distinct('id')
+        ).distinct()
 
 
 class Task(KandoModelBase, models.Model):

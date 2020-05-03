@@ -11,9 +11,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '^4xbb@m+djbdp*mumrwgfugq)&v7js@#x_cd@&n2_4)65sqh9k'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['.breadcrumb.tech', ]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -88,14 +88,21 @@ REST_FRAMEWORK = {
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'kando',
+#         'USER': 'breadcrumb',
+#         'PASSWORD': 'DEgLkPuz4baqyAAuo6sn5AaCLWsY2nOW',
+#         'HOST': 'localhost',
+#         'PORT': '',
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'kando',
-        'USER': 'breadcrumb',
-        'PASSWORD': 'DEgLkPuz4baqyAAuo6sn5AaCLWsY2nOW',
-        'HOST': 'localhost',
-        'PORT': '',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'kando.db'),
     }
 }
 
@@ -137,52 +144,52 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(os.path.sep, 'var', 'www', 'static')
+# STATIC_ROOT = os.path.join(os.path.sep, 'var', 'www', 'static')
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'formatters': {
-        'verbose': {
-            'format': '%(asctime)s %(levelname)s %(module)s %(message)s',
-            'datefmt': '%b %d %H:%M:%S',
-        },
-        'simple': {
-            'format': '%(levelname)s %(message)s'
-        },
-        'request_formatter': {
-            'format': '%(asctime)s %(levelname)s %(module)s %(message)s '
-                      'REMOTE_ADDR: %(req_remote_addr)s\nREQUEST: %(request)s'
-        }
-    },
-    'filters': {
-        'require_debug_false': {
-            '()': 'django.utils.log.RequireDebugFalse'
-        }
-    },
-    'handlers': {
-        'mail_admins': {
-            'level': 'ERROR',
-            'filters': ['require_debug_false'],
-            'class': 'django.utils.log.AdminEmailHandler'
-        },
-        'kando_file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': '/var/log/kando/kando.log',
-            'formatter': 'verbose',
-        },
-    },
-    'loggers': {
-        'django.request': {  # 500 errors
-            'handlers': ['mail_admins', 'kando_file'],
-            'level': 'ERROR',
-            'propagate': True,
-        },
-        'kando': {
-            'handlers': ['kando_file'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-    }
-}
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'formatters': {
+#         'verbose': {
+#             'format': '%(asctime)s %(levelname)s %(module)s %(message)s',
+#             'datefmt': '%b %d %H:%M:%S',
+#         },
+#         'simple': {
+#             'format': '%(levelname)s %(message)s'
+#         },
+#         'request_formatter': {
+#             'format': '%(asctime)s %(levelname)s %(module)s %(message)s '
+#                       'REMOTE_ADDR: %(req_remote_addr)s\nREQUEST: %(request)s'
+#         }
+#     },
+#     'filters': {
+#         'require_debug_false': {
+#             '()': 'django.utils.log.RequireDebugFalse'
+#         }
+#     },
+#     'handlers': {
+#         'mail_admins': {
+#             'level': 'ERROR',
+#             'filters': ['require_debug_false'],
+#             'class': 'django.utils.log.AdminEmailHandler'
+#         },
+#         'kando_file': {
+#             'level': 'DEBUG',
+#             'class': 'logging.FileHandler',
+#             'filename': '/var/log/kando/kando.log',
+#             'formatter': 'verbose',
+#         },
+#     },
+#     'loggers': {
+#         'django.request': {  # 500 errors
+#             'handlers': ['mail_admins', 'kando_file'],
+#             'level': 'ERROR',
+#             'propagate': True,
+#         },
+#         'kando': {
+#             'handlers': ['kando_file'],
+#             'level': 'DEBUG',
+#             'propagate': True,
+#         },
+#     }
+# }
